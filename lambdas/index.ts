@@ -1,18 +1,14 @@
-import * as AWS from 'aws-sdk';
+import { Trip } from './trips';
 
-const TABLE_NAME = process.env.TABLE_NAME || '';
+export const handler = async (event): Promise<any> => {
 
-const db = new AWS.DynamoDB.DocumentClient();
+    const method = event.requestContext.http.method;
+    const queryString = event.queryStringParameters;
 
-export const handler = async (): Promise<any> => {
-
-    const params = {
-        TableName: TABLE_NAME
-    };
-
+    console.log('this is the second day of this!');
     try {
-        const response = await db.scan(params).promise();
-        return { statusCode: 200, body: JSON.stringify(response.Items) };
+        const response = await Trip.query(queryString);
+        return { statusCode: 200, body: JSON.stringify(response) };
     } catch (dbError) {
         return { statusCode: 500, body: JSON.stringify(dbError) };
     }

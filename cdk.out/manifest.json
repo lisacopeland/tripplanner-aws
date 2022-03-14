@@ -23,7 +23,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/dee95149696d2a8a02e62624eeef0afe3d28113d6e9f8a7bc40e8514e2e9f87a.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d2e7782f033fa36ec66af91bbba57036634cfcc6f11b41b36afc96b78f2b811f.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -92,7 +92,7 @@
         "/ApiLambdaCrudDynamoDBExample/tripsApi/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "tripsApiDeployment18930F40ad4073bf9bec34b379f51089024d9af0"
+            "data": "tripsApiDeployment18930F405d85a0a14252bd28a401838aae59acb5"
           }
         ],
         "/ApiLambdaCrudDynamoDBExample/tripsApi/DeploymentStage.prod/Resource": [
@@ -161,6 +161,42 @@
             "data": "tripsApitripsPOST30B15E67"
           }
         ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/PUT/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..trips": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApitripsPUTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTtripsDFF67C1A"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/PUT/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..trips": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApitripsPUTApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTtrips2D661AEA"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/PUT/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApitripsPUTE517CB16"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/DELETE/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.DELETE..trips": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApitripsDELETEApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BDELETEtripsB53E74B2"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/DELETE/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.DELETE..trips": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApitripsDELETEApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BDELETEtrips87008A52"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/DELETE/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApitripsDELETE5F1633EA"
+          }
+        ],
         "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/{id}/Resource": [
           {
             "type": "aws:cdk:logicalId",
@@ -189,6 +225,24 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "tripsApitripsidGET812A8491"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/{id}/POST/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.POST..trips.{id}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApitripsidPOSTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPOSTtripsidFB55EDB8"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/{id}/POST/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.POST..trips.{id}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApitripsidPOSTApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BPOSTtripsid606F36F7"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/{id}/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApitripsidPOST678DBAB5"
           }
         ],
         "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/{id}/PUT/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..trips.{id}": [

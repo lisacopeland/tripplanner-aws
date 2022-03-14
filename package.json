@@ -14,13 +14,17 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "*",
+    "@types/node": "^17.0.21",
     "aws-cdk": "*",
     "esbuild": "*",
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@types/aws-lambda": "^8.10.93",
     "aws-cdk-lib": "^2.0.0",
-    "constructs": "^10.0.0"
+    "constructs": "^10.0.0",
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8"
   }
 }

@@ -3,8 +3,6 @@ import { AttributeType, Table } from 'aws-cdk-lib/aws-dynamodb';
 import { Runtime } from 'aws-cdk-lib/aws-lambda';
 import { App, Stack, RemovalPolicy } from 'aws-cdk-lib';
 import { NodejsFunction, NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs';
-// import { join } from 'path'
-// import * as lambda from 'aws-cdk-lib/aws-lambda';
 
 export class ApiLambdaCrudDynamoDBStack extends Stack {
     constructor(app: App, id: string) {
@@ -51,15 +49,6 @@ export class ApiLambdaCrudDynamoDBStack extends Stack {
             ...nodeJsFunctionProps,
         });
 
-/*         const tripsLambda = new lambda.Function(this, 'MyFunction', {
-            runtime: lambda.Runtime.NODEJS_14_X,
-            handler: 'index.handler',
-            code: lambda.Code.fromAsset('lambdas'),
-            bundling: {
-
-            }
-        });
- */
         // Grant the Lambda function read access to the DynamoDB table
         dynamoTable.grantReadWriteData(tripsLambda);
 
@@ -87,14 +76,14 @@ export class ApiLambdaCrudDynamoDBStack extends Stack {
         trips.addMethod('POST', tripsIntegration);
         trips.addMethod('PUT', tripsIntegration);
         trips.addMethod('DELETE', tripsIntegration);        
-        addCorsOptions(trips);
+        // addCorsOptions(trips);
 
         const trip = trips.addResource('{id}');
         trip.addMethod('GET', tripsIntegration);
         trip.addMethod('POST', tripsIntegration);        
         trip.addMethod('PUT', tripsIntegration);
         trip.addMethod('DELETE', tripsIntegration);
-        addCorsOptions(trip);
+        // addCorsOptions(trip);  
 
     }
 }

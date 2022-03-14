@@ -123,7 +123,7 @@
           "S3Bucket": {
             "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
           },
-          "S3Key": "4415e37706ea83e5f8ef20b69ad0527f85d4cb1a97658296d21da17500a263c5.zip"
+          "S3Key": "fa27d93a6f421041e1915cbe149c2eaffe818a0cad1aa435f36e095bc72ff835.zip"
         },
         "Role": {
           "Fn::GetAtt": [
@@ -149,7 +149,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsLambda/Resource",
-        "aws:asset:path": "asset.4415e37706ea83e5f8ef20b69ad0527f85d4cb1a97658296d21da17500a263c5",
+        "aws:asset:path": "asset.fa27d93a6f421041e1915cbe149c2eaffe818a0cad1aa435f36e095bc72ff835",
         "aws:asset:is-bundled": true,
         "aws:asset:property": "Code"
       }
@@ -214,7 +214,7 @@
         "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Account"
       }
     },
-    "tripsApiDeployment18930F40ad4073bf9bec34b379f51089024d9af0": {
+    "tripsApiDeployment18930F405d85a0a14252bd28a401838aae59acb5": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -227,11 +227,14 @@
         "tripsApitripsidDELETE79B75E32",
         "tripsApitripsidGET812A8491",
         "tripsApitripsidOPTIONS1BFAA080",
+        "tripsApitripsidPOST678DBAB5",
         "tripsApitripsidPUT517876D0",
         "tripsApitripsid8AAC1A09",
+        "tripsApitripsDELETE5F1633EA",
         "tripsApitripsGETC7812EEA",
         "tripsApitripsOPTIONS52186AAF",
         "tripsApitripsPOST30B15E67",
+        "tripsApitripsPUTE517CB16",
         "tripsApitrips73982C39"
       ],
       "Metadata": {
@@ -245,7 +248,7 @@
           "Ref": "tripsApi5561DC5E"
         },
         "DeploymentId": {
-          "Ref": "tripsApiDeployment18930F40ad4073bf9bec34b379f51089024d9af0"
+          "Ref": "tripsApiDeployment18930F405d85a0a14252bd28a401838aae59acb5"
         },
         "StageName": "prod"
       },
@@ -619,6 +622,260 @@
         "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/POST/Resource"
       }
     },
+    "tripsApitripsPUTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTtripsDFF67C1A": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "tripsLambdaC2DDB7CA",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "tripsApi5561DC5E"
+              },
+              "/",
+              {
+                "Ref": "tripsApiDeploymentStageprodE81F976F"
+              },
+              "/PUT/trips"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/PUT/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..trips"
+      }
+    },
+    "tripsApitripsPUTApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTtrips2D661AEA": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "tripsLambdaC2DDB7CA",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "tripsApi5561DC5E"
+              },
+              "/test-invoke-stage/PUT/trips"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/PUT/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..trips"
+      }
+    },
+    "tripsApitripsPUTE517CB16": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "PUT",
+        "ResourceId": {
+          "Ref": "tripsApitrips73982C39"
+        },
+        "RestApiId": {
+          "Ref": "tripsApi5561DC5E"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "tripsLambdaC2DDB7CA",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/PUT/Resource"
+      }
+    },
+    "tripsApitripsDELETEApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BDELETEtripsB53E74B2": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "tripsLambdaC2DDB7CA",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "tripsApi5561DC5E"
+              },
+              "/",
+              {
+                "Ref": "tripsApiDeploymentStageprodE81F976F"
+              },
+              "/DELETE/trips"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/DELETE/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.DELETE..trips"
+      }
+    },
+    "tripsApitripsDELETEApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BDELETEtrips87008A52": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "tripsLambdaC2DDB7CA",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "tripsApi5561DC5E"
+              },
+              "/test-invoke-stage/DELETE/trips"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/DELETE/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.DELETE..trips"
+      }
+    },
+    "tripsApitripsDELETE5F1633EA": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "DELETE",
+        "ResourceId": {
+          "Ref": "tripsApitrips73982C39"
+        },
+        "RestApiId": {
+          "Ref": "tripsApi5561DC5E"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "tripsLambdaC2DDB7CA",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/DELETE/Resource"
+      }
+    },
     "tripsApitripsid8AAC1A09": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
@@ -803,6 +1060,133 @@
       },
       "Metadata": {
         "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/{id}/GET/Resource"
+      }
+    },
+    "tripsApitripsidPOSTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPOSTtripsidFB55EDB8": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "tripsLambdaC2DDB7CA",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "tripsApi5561DC5E"
+              },
+              "/",
+              {
+                "Ref": "tripsApiDeploymentStageprodE81F976F"
+              },
+              "/POST/trips/*"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/{id}/POST/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.POST..trips.{id}"
+      }
+    },
+    "tripsApitripsidPOSTApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BPOSTtripsid606F36F7": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "tripsLambdaC2DDB7CA",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "tripsApi5561DC5E"
+              },
+              "/test-invoke-stage/POST/trips/*"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/{id}/POST/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.POST..trips.{id}"
+      }
+    },
+    "tripsApitripsidPOST678DBAB5": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "POST",
+        "ResourceId": {
+          "Ref": "tripsApitripsid8AAC1A09"
+        },
+        "RestApiId": {
+          "Ref": "tripsApi5561DC5E"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "tripsLambdaC2DDB7CA",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/tripsApi/Default/trips/{id}/POST/Resource"
       }
     },
     "tripsApitripsidPUTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTtripsidA6629AB5": {
@@ -1062,7 +1446,7 @@
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAA/01RyVKEMBD9Fu8hOm53ZixvLjV6p5qkxQaSUCRxiqL4dzsBnTm9pffkVu4e5c0VnHyhdFf0VMv5I4DqBFvVrCcLxmk2P6HuURy+bCaL6MHUGirrNLZevmZ4jlYFclYQGDkf3VqQ8d31pKYkV7YIf1eB9xi8LBOwlvuoOgx78Li1lzMX/HdNxTga8p7VImCgBgKeYOJZ6EM5UB53pqVSLtognnDo3WSQKbsXii9t8o4r4VIXR4V5gxcM306n4Mb+otuQzJflbOczUiOyTcp5i2GI4TI78YOzmkI+IL2dbP31z+5e7h74F1pPVIy8MRmUxxV/AcNeEmyhAQAA"
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/01RS0+EMBD+Ld5LddV4Z9d485HVOxnakR2gLWFaN4Tw320Lunv6HvNu7+XuSd7dwJkLpbuip1rOnx5UJ6JVzXqyYJyO5hfUPYrDt81kET2YWkNlncaW5VuGl2CVJ2cFgZHz0a0FGT9cT2pKcmWL4IcKmNGzLBNELfdBdej3wLi1l3Ms+O+ainE0xBzVImCgBjyeYYqzkH05UB53oaVSLlgvnnHo3WQw0uheqXhpk3dcSSx1YVSYN3hFf3I6BTf2F92GZL4sFzufkRqRbVLOe/BD8NfZiR+c1eTzAentZMu3P7vH9RdaJirGuDEZlMcVfwHr9ww0oQEAAA=="
       },
       "Metadata": {
         "aws:cdk:path": "ApiLambdaCrudDynamoDBExample/CDKMetadata/Default"

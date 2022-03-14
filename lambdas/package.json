@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "aws-sdk": "*",
-    "uuid": "*"
+    "moment": "^2.29.1",
+    "uuid": "^8.3.2"
   }
 }
