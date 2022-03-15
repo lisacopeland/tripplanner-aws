@@ -2,12 +2,15 @@ import path from "path";
 import jwt from 'jwt-decode';
 const express = require('express')
 const lambdaLocal = require('lambda-local');
-const app = express()
+const cors = require('cors');
+const app = express();
+
 
 const STAGE = 'prod';
 
 // Process body as plain text as this is
 // how it would come from API Gateway
+app.use(cors());
 app.use(express.text())
 
 app.use('/trips', async (req, res) => {
