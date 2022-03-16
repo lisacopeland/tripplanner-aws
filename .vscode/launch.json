@@ -12,6 +12,9 @@
                 "AWS_PROFILE": "default",
                 "AWS_REGION": "us-west-2"
             },
+            "runtimeArgs": [
+                "--trace-warnings"
+            ],
             "skipFiles": [
                 "<node_internals>/**"
             ],
