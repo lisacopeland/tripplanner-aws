@@ -20,7 +20,7 @@ export class Trip {
   admin_status: string;
   admin_notes: string;
 
-  static async query(aid: string, id?: string) {
+  static async query(aid: string, id?: string): Promise<Trip[]> {
     const TableName = TABLE_NAME;
     const params: DocumentClient.QueryInput = {
       TableName,
@@ -40,17 +40,17 @@ export class Trip {
   } 
 
     try {
-      const response = await db.query(params).promise();
+      const response: DocumentClient.QueryOutput = await db.query(params).promise();
       let items: Trip[] = [];
       if (response.Items) {
         items = response.Items.map((item) => {
           return this.newInstance(item);
         });
       }
-        return { statusCode: 200, body: JSON.stringify(items) };
+        return items;
         
     } catch (dbError) {
-      return { statusCode: 500, body: JSON.stringify(dbError) };
+      throw dbError;
     }
 /*     try {
       const res = await documentClient.scan(params).promise();
