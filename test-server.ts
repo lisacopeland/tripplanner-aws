@@ -7,6 +7,7 @@ const app = express();
 
 
 const STAGE = 'prod';
+process.env.TABLE_NAME = 'trips';
 
 // Process body as plain text as this is
 // how it would come from API Gateway
