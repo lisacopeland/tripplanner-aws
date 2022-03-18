@@ -1,4 +1,4 @@
-import { Trip } from './trips';
+import { mapToTrips, Trip } from './trips';
 
 export const handler = async (event): Promise<any> => {
   console.log('querystring: ', event.queryStringParameters);
@@ -8,39 +8,39 @@ export const handler = async (event): Promise<any> => {
   const id = queryString.id;
   const body = event.body;
   console.log('method is ', method);
+  return tripOperation(method, account_id, id, body);
 
-  switch (method) {
-    case 'GET':
-      if (account_id !== undefined) {
-        const trips = await Trip.query(account_id, id);
-        return { statusCode: 200, body: trips };
-      } else {
-        return { statusCode: 500, body: `Account Id is required` };
-      }
-    case 'POST':
+};
+
+async function tripOperation(method: string, aid: string, id?: string, body = {}) {
+  try {
+    if (method === 'POST') {
       const trip = Trip.newInstance(body);
       await trip.save();
       return { statusCode: 200, body: trip };
-    case 'PUT':
-      const trips = await Trip.query(account_id, id);
-      if (!trips.length) {
-        return { statusCode: 500, body: `Couldnt find existing trip` };
-      }
-      const putTrip = trips[0];
-      Object.keys(body).forEach((key) => {
-        putTrip[key] = body[key];
-      });
-      putTrip.save();
-      return { statusCode: 200, body: putTrip };
-    case 'DELETE':
-      const delTrips = await Trip.query(account_id, id);
-      if (!delTrips.length) {
-        return { statusCode: 500, body: `Couldnt find existing trip` };
-      }
-      const delTrip = delTrips[0];
-      delTrip.delete();
-      return { statusCode: 200, body: delTrip };
-    default:
-      return { statusCode: 500, body: 'Unsupported method' };
+    }
+    const res = await Trip.query(aid, id);
+    const trips: Trip[] = mapToTrips(res.Items);
+    const trip: Trip = trips[0];
+
+    switch(method) {
+      case 'GET': 
+        return { statusCode: 200, body: trips };
+      case 'PUT':
+        Object.keys(body).forEach((key) => {
+          trip[key] = body[key];
+        });
+        trip.save();
+        return { statusCode: 200, body: trip };
+      case 'DELETE':
+        trip.delete();
+        return { statusCode: 200, body: trip };
+      default: 
+        return { statusCode: 500, body: `Unsupported method: ${method}`}
+    }
+  } catch (e) {
+    throw e;
   }
-};
+
+}
+
