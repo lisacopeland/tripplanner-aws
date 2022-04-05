@@ -1,4 +1,4 @@
-import { IResource, LambdaIntegration, MockIntegration, PassthroughBehavior, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { LambdaIntegration , RestApi } from 'aws-cdk-lib/aws-apigateway';
 import { AttributeType, Table } from 'aws-cdk-lib/aws-dynamodb';
 import { Runtime } from 'aws-cdk-lib/aws-lambda';
 import { App, Stack, RemovalPolicy } from 'aws-cdk-lib';
@@ -82,52 +82,34 @@ export class ApiLambdaCrudDynamoDBStack extends Stack {
             },            
         });
 
-        const trips = api.root.addResource('trips/{aid}');
+        const aid = api.root.addResource('{aid}');
+        const trips = aid.addResource('trips');
         trips.addMethod('GET', tripsIntegration); // Query for trips
         trips.addMethod('POST', tripsIntegration); // Post a new trip
 
-        const trip = trips.addResource('{tripId}');
-        trip.addMethod('GET', tripsIntegration); // Get a specific trip
-        trip.addMethod('PUT', tripsIntegration);  // Update a trip
-        trip.addMethod('DELETE', tripsIntegration); // Delete a trip
+        const tripsId = trips.addResource('{tripId}');
+        tripsId.addMethod('GET', tripsIntegration); // Get a specific trip
+        tripsId.addMethod('PUT', tripsIntegration);  // Update a trip
+        tripsId.addMethod('DELETE', tripsIntegration); // Delete a trip
 
-        const tripDetails = trip.addResource('tripdetails');
+        const tripDetails = tripsId.addResource('tripdetails');
         tripDetails.addMethod('GET', tripsIntegration); // Query for trip details
         tripDetails.addMethod('POST', tripsIntegration); // Post a new trip detail
 
-        const tripDetail = tripDetails.addResource('{tripdetailId}');
-        tripDetail.addMethod('PUT', tripsIntegration);  // Update a trip
-        tripDetail.addMethod('DELETE', tripsIntegration); // Delete a trip
+        const tripDetailsId = tripDetails.addResource('{tripdetailId}');
+        tripDetailsId.addMethod('PUT', tripsIntegration);  // Update a trip
+        tripDetailsId.addMethod('DELETE', tripsIntegration); // Delete a trip
+
+        const people = aid.addResource('people');
+        people.addMethod('GET', tripsIntegration); // Query for trips
+        people.addMethod('POST', tripsIntegration); // Post a new trip
+
+        const personId = people.addResource('{personId}');
+        personId.addMethod('GET', tripsIntegration); // Get a specific trip
+        personId.addMethod('PUT', tripsIntegration);  // Update a trip
+        personId.addMethod('DELETE', tripsIntegration); // Delete a trip
 
     }
-}
-
-export function addCorsOptions(apiResource: IResource) {
-    apiResource.addMethod('OPTIONS', new MockIntegration({
-        integrationResponses: [{
-            statusCode: '200',
-            responseParameters: {
-                'method.response.header.Access-Control-Allow-Headers': "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                'method.response.header.Access-Control-Allow-Origin': "'*'",
-                'method.response.header.Access-Control-Allow-Credentials': "'false'",
-                'method.response.header.Access-Control-Allow-Methods': "'OPTIONS,GET,PUT,POST,DELETE'",
-            },
-        }],
-        passthroughBehavior: PassthroughBehavior.NEVER,
-        requestTemplates: {
-            "application/json": "{\"statusCode\": 200}"
-        },
-    }), {
-        methodResponses: [{
-            statusCode: '200',
-            responseParameters: {
-                'method.response.header.Access-Control-Allow-Headers': true,
-                'method.response.header.Access-Control-Allow-Methods': true,
-                'method.response.header.Access-Control-Allow-Credentials': true,
-                'method.response.header.Access-Control-Allow-Origin': true,
-            },
-        }]
-    })
 }
 
 const app = new App();

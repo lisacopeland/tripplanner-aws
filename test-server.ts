@@ -11,37 +11,53 @@ process.env.BACKGROUND_PIC_BUCKET_NAME = 'trips-background-pics';
 
 export const routes = [
   {
-    path: '/trips/:aid',
+    path: '/:aid/trips',
     method: 'GET'
   },
   {
-    path: '/trips/:aid',
+    path: '/:aid/trips',
     method: 'POST'
   },
   {
-    path: '/trips/:aid/:tripId',
+    path: '/:aid/trips/:tripId',
     method: 'PUT'
   },
   {
-    path: '/trips/:aid/:tripId',
+    path: '/:aid/trips/:tripId',
     method: 'DELETE'
   },
   {
-    path: '/trips/:aid/:tripId/tripdetails',
+    path: '/:aid/trips/:tripId/tripdetails',
     method: 'GET'
   },
   {
-    path: '/trips/:aid/:tripId/tripdetails',
+    path: '/:aid/trips/:tripId/tripdetails',
     method: 'POST'
   },
   {
-    path: '/trips/:aid/:tripId/tripdetails/:tripdetailId',
+    path: '/:aid/trips/:tripId/tripdetails/:tripdetailId',
     method: 'PUT'
   },
   {
-    path: '/trips/:aid/:tripId/tripdetails/:tripdetailId',
+    path: '/:aid/trips/:tripId/tripdetails/:tripdetailId',
     method: 'DELETE'
-  }  
+  },
+  {
+    path: '/:aid/people',
+    method: 'GET'
+  },
+  {
+    path: '/:aid/people',
+    method: 'POST'
+  },
+  {
+    path: '/:aid/people/:personId',
+    method: 'PUT'
+  },
+  {
+    path: '/:aid/people/:personId',
+    method: 'DELETE'
+  },   
 ];
 
 // Process body as plain text as this is
@@ -52,6 +68,7 @@ app.use(cors());
 app.use(express.json());
 
 routes.forEach((route) => {
+  console.log('serving :', route.path, ' method: ', route.method);
   const method = route.method.toLowerCase();
   app[method](
     route.path,
@@ -67,7 +84,8 @@ routes.forEach((route) => {
             event: req.event
           })
         // Respond to HTTP request
-        const body = (result.body !== undefined) ? JSON.stringify(result.body) : '';
+        // const body = (result.body !== undefined) ? JSON.stringify(result.body) : '';
+        const body = (result.body !== undefined) ? result.body : '';
         if (result.statusCode) {
           res.status(result.statusCode);
         } else {
@@ -84,6 +102,7 @@ routes.forEach((route) => {
 app.listen(3000, () => console.log('listening on port: 3000'));
 
 async function convertRequestToApiGatewayEvent(req, res, next) {
+  console.log('res: ', res);
   let claims = {};
   if (req.headers.authorization) {
     claims = jwt(req.headers.authorization.replace('bearer ', ''));
@@ -92,6 +111,7 @@ async function convertRequestToApiGatewayEvent(req, res, next) {
     version: '2.0',
     routeKey: STAGE,
     rawPath: req.path,
+    path: req.path,
     rawQueryString: req._parsedUrl.query,
     cookies: ['cookie1', 'cookie2'],
     headers: req.headers,

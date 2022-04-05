@@ -1,0 +1,486 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "ApiLambdaCrudDynamoDBExample.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ApiLambdaCrudDynamoDBExample.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ApiLambdaCrudDynamoDBExample": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "ApiLambdaCrudDynamoDBExample.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9ae8d986b51ce930300200282f7fbb83088dec471d2726b4330280a35774ba22.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ApiLambdaCrudDynamoDBExample.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ApiLambdaCrudDynamoDBExample.assets"
+      ],
+      "metadata": {
+        "/ApiLambdaCrudDynamoDBExample/trips": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "trips4A120948"
+            }
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/trips/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "trips4A120948"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/background-picture-bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "backgroundpicturebucket093D9A67"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsLambda/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsLambdaServiceRole40A4ABDF"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsLambda/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsLambdaServiceRoleDefaultPolicyE12B7C6B"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsLambdaC2DDB7CA"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApi5561DC5E"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiCloudWatchRole1200D5B5"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiAccount60B95436"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiDeployment18930F405c5662da3428bfe0f4eb5ac2f58fc40a"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/DeploymentStage.dev/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiDeploymentStagedevB3CBCE13"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiEndpoint7EAE807C"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiOPTIONSB53B58D0"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaid2FFB34BD"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidOPTIONS052637E4"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtrips3DA43149"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripsOPTIONS68941722"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/GET/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.GET..{aid}.trips": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripsGETApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BGETaidtrips6E93E045"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/GET/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.GET..{aid}.trips": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripsGETApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BGETaidtripsAFBC54E0"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripsGETD1C8E8E6"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/POST/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.POST..{aid}.trips": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripsPOSTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPOSTaidtrips1A67DD80"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/POST/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.POST..{aid}.trips": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripsPOSTApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BPOSTaidtripsF2BA6303"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripsPOSTE471A6A7"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripId8CFF354E"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdOPTIONSFC4C3B27"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/GET/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.GET..{aid}.trips.{tripId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdGETApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BGETaidtripstripId9CD695E1"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/GET/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.GET..{aid}.trips.{tripId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdGETApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BGETaidtripstripIdEDF6A388"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdGETB02C63FF"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/PUT/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..{aid}.trips.{tripId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdPUTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTaidtripstripId163CAFC6"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/PUT/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..{aid}.trips.{tripId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdPUTApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTaidtripstripId3F430A27"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/PUT/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdPUT7E79A688"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/DELETE/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.DELETE..{aid}.trips.{tripId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdDELETEApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BDELETEaidtripstripId215AAAE6"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/DELETE/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.DELETE..{aid}.trips.{tripId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdDELETEApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BDELETEaidtripstripId6D54B4D7"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/DELETE/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdDELETE85255364"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetails15336A0B"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailsOPTIONS5988ADD2"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/GET/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.GET..{aid}.trips.{tripId}.tripdetails": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailsGETApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BGETaidtripstripIdtripdetails045E6CB2"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/GET/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.GET..{aid}.trips.{tripId}.tripdetails": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailsGETApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BGETaidtripstripIdtripdetails708F1BA8"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailsGET43E4B89D"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/POST/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.POST..{aid}.trips.{tripId}.tripdetails": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailsPOSTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPOSTaidtripstripIdtripdetailsCBC17A63"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/POST/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.POST..{aid}.trips.{tripId}.tripdetails": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailsPOSTApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BPOSTaidtripstripIdtripdetailsF6A8EC8A"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailsPOSTEE0EBB12"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/{tripdetailId}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailstripdetailId89EC8619"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/{tripdetailId}/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailstripdetailIdOPTIONS91D33493"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/{tripdetailId}/PUT/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..{aid}.trips.{tripId}.tripdetails.{tripdetailId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailstripdetailIdPUTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTaidtripstripIdtripdetailstripdetailIdAC62529A"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/{tripdetailId}/PUT/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..{aid}.trips.{tripId}.tripdetails.{tripdetailId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailstripdetailIdPUTApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTaidtripstripIdtripdetailstripdetailId541896F3"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/{tripdetailId}/PUT/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailstripdetailIdPUTC2B64C80"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/{tripdetailId}/DELETE/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.DELETE..{aid}.trips.{tripId}.tripdetails.{tripdetailId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailstripdetailIdDELETEApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BDELETEaidtripstripIdtripdetailstripdetailId68D9F216"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/{tripdetailId}/DELETE/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.DELETE..{aid}.trips.{tripId}.tripdetails.{tripdetailId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailstripdetailIdDELETEApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BDELETEaidtripstripIdtripdetailstripdetailId29A439B6"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/trips/{tripId}/tripdetails/{tripdetailId}/DELETE/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidtripstripIdtripdetailstripdetailIdDELETE0056924F"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeople17BD6655"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeopleOPTIONSD48E9D34"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/GET/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.GET..{aid}.people": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeopleGETApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BGETaidpeople71F574D0"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/GET/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.GET..{aid}.people": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeopleGETApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BGETaidpeople4B07AB82"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeopleGET556A29B1"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/POST/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.POST..{aid}.people": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplePOSTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPOSTaidpeopleED49FA32"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/POST/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.POST..{aid}.people": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplePOSTApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BPOSTaidpeople138460BA"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplePOST89B7ECEB"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdFE45A7FC"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdOPTIONS304AE64F"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/GET/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.GET..{aid}.people.{personId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdGETApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BGETaidpeoplepersonId6747173F"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/GET/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.GET..{aid}.people.{personId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdGETApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BGETaidpeoplepersonIdC27E7145"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdGET33745088"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/PUT/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..{aid}.people.{personId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdPUTApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTaidpeoplepersonIdDA870383"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/PUT/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.PUT..{aid}.people.{personId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdPUTApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BPUTaidpeoplepersonId8D57C8ED"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/PUT/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdPUT08335E4F"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/DELETE/ApiPermission.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.DELETE..{aid}.people.{personId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdDELETEApiPermissionApiLambdaCrudDynamoDBExampletripsApi16D0973BDELETEaidpeoplepersonId9D75807C"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/DELETE/ApiPermission.Test.ApiLambdaCrudDynamoDBExampletripsApi16D0973B.DELETE..{aid}.people.{personId}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdDELETEApiPermissionTestApiLambdaCrudDynamoDBExampletripsApi16D0973BDELETEaidpeoplepersonId3B6522E5"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/tripsApi/Default/{aid}/people/{personId}/DELETE/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "tripsApiaidpeoplepersonIdDELETEF1128BF6"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ApiLambdaCrudDynamoDBExample/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ApiLambdaCrudDynamoDBExample"
+    }
+  }
+}

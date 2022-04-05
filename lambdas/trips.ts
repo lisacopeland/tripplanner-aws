@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 import moment from "moment";
 import { DocumentClient } from "aws-sdk/clients/dynamodb";
 
+// CRUD operations for Trips and TripDetails
 const TABLE_NAME = process.env.TABLE_NAME || "trips";
 
 const db = new AWS.DynamoDB.DocumentClient();

@@ -1,0 +1,32 @@
+{
+  "version": "16.0.0",
+  "files": {
+    "95cd5c9cbaa703b51d7ebcdb1210cefff890b52b7123bd22bfee97dd1cf4f9e4": {
+      "source": {
+        "path": "asset.95cd5c9cbaa703b51d7ebcdb1210cefff890b52b7123bd22bfee97dd1cf4f9e4",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "95cd5c9cbaa703b51d7ebcdb1210cefff890b52b7123bd22bfee97dd1cf4f9e4.zip",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "9ae8d986b51ce930300200282f7fbb83088dec471d2726b4330280a35774ba22": {
+      "source": {
+        "path": "ApiLambdaCrudDynamoDBExample.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "9ae8d986b51ce930300200282f7fbb83088dec471d2726b4330280a35774ba22.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
